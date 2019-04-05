@@ -1,0 +1,116 @@
+app:
+    urlPrefix: ''
+    appName: 'genpactN'
+    baseUrl: public/app
+emailgroup: 'nomura.com'
+register:
+    location:
+        - London, UK
+        - Bangalore, India
+        - Mumbai, India
+        - New York, USA
+
+
+techSkills: 
+    title: 
+        - Business Analyst
+        - Developer
+        - Database Expert
+        - Quality Analyst
+        - Tech Architect
+        - Project Manager
+        - EM Support
+    languages: [
+        {id: 'Java',details: 'Java,J2EE'},
+        {id: 'DotNet',details: 'C#, VB.Net'},
+        {id: 'C++',details: 'C++'},
+        {id: 'Web',details: 'JS, HTML, CSS3, SAAS'},
+        {id: 'Database',details: 'SQL Server, Sybase, Oracle, MySql, RavenDB, MongoDB'},
+        {id: 'ETL' ,details:'ETL'}
+    ]
+    domain:
+        - Investment Banking
+        - Retail
+    os: 
+        - Windows OS
+        - Mac OS X
+        - Linux/Unix
+    tools: 
+        - Eclipse IDE
+        - Visual Studio
+        - CK Editor
+calendar: 
+    year: 
+        - 2017
+        - 2018
+        - 2019
+    month: [{id: '1',name: 'January'},
+        {id: '2',name: 'February'},
+        {id: '3',name: 'March'},
+        {id: '4',name: 'April'},
+        {id: '5',name: 'May'},
+        {id: '6',name: 'June'},
+        {id: '7',name: 'July'},
+        {id: '8',name: 'August'},
+        {id: '9',name: 'September'},
+        {id: '10',name: 'October'},
+        {id: '11',name: 'November'},
+        {id: '12',name: 'December'}]
+        
+timesheetLabels: 
+    genpact: 'Genpact Working Days'
+    client: 'Nomura Working Days'
+scheduler:
+    seconds: '1'
+    minutes: '24,25'
+    hours: '17'
+    day_of_month: '30'
+    month: '*'
+    day_of_week: '*'
+    to: 'genpact-hsteam@nomura.com;genpact-hs-inteam@nomura.com'
+    cc: 'AmbujKumar.Swain@genpact.com;Dharmendra.Tiwari@nomura.com'
+    bcc: 'mithun.kumar@nomura.com;'
+    subject: 'Timesheet Reminder Email'
+    template: 'register'
+    remindTemplate: 'reminder'
+    location: 'LONDON'
+mail:
+  host: 'smtp://mailhost.nomura.com:25'
+  fromAddress: 'no-reply@nomura.com'
+timesheetTemplate:
+    reportTemplate: 'timesheetReport'
+    adminAddress : 'mithun.kumar@nomura.com'
+    adminName : 'Mithun Kumar'
+    pmoShortName : 'Amit'
+    pmo : Amit Rampal
+    pmoEmail : 'genpactcmrow-india-europe-pmo@genpact.com;amit.rampal@genpact.com;preeti.yadav2@genpact.com'
+    cc : 'karan.Goyal@genpact.com;AmbujKumar.Swain@genpact.com;Dharmendra.Tiwari@nomura.com'
+    bcc : 'mithun.kumar2@genpact.com;mithun.kumar@nomura.com;'
+    expenditureType:
+                    - Billable
+                    - Non Billable
+    taskDetails:
+        - 06-Bench time
+        - 06.01-Bench time
+        - 10.01-Unpaid Leave
+        - 10.02-Paid Leave
+        - 10.05-Holiday
+        - 10.06-Non-working hours
+        - 06.01-Time Regular
+        - 06-Time
+        - 06.01-Time Regular
+        - 06.02-Time-Morning
+        - 06.03-Time-Afternoon
+        - 06.04-Time-Evening
+        - 07.01-Non Billable Expense
+        - 07.02-Billable Expenses
+        - 10.01-Unpaid Leave
+        - 10.02-Paid Leave
+        - 10.05-Holiday
+        - 10.06-Non-Working hours
+        - Other
+
+applicationEnv:
+    hostName : 'lonwd033323'
+
+
