@@ -1,0 +1,75 @@
+<div class="default-page" data-ng-init="viewAllEmpTimesheet()">
+	<div class="row">
+		<div class="col-sm-12">
+			<div class="panel panel-primary">
+				<div class="panel-heading">
+					Serach Criteria
+				</div>
+				<div class="panel-body">
+					<form class="form-inline">
+					  <div class="form-group">
+					   	<div class="form-label">Select Year</div>
+						<select class="form-control" ng-model="tsModel.year" ng-options="x for x in config.calendar.year">
+						</select>
+					  </div>
+					  <div class="form-group">
+					   <div class="form-label">Select Month</div>
+						<select class="form-control" ng-change="getTotalDays(tsModel)" ng-model="tsModel.month" ng-options="item as item.name for item in config.calendar.month">
+							<option value="">Please Select Month</option>
+									</select>
+					 	 <button type="submit" class="btn btn-default">Submit</button>
+						</div>
+					</form> 
+				</div>
+			</div>
+		</div>
+	</div>
+	<br>
+	<div class="row">
+		<div class="col-sm-12">
+			<div class="panel panel-primary" style="padding-top: 7px;">
+				<div class="panel-heading">
+					<h3 class="panel-title"> <span class="menu-icon"> <i class="fa fa-book" aria-hidden="true"></i></span> All Employee Timesheet </h3>
+				</div>
+				<div class="panel-body">
+					<div class="table-responsive"> 
+						<table width="100%" class="table table-striped table-bordered header-fixed"  id="example" cellspacing="0" >
+							<thead id="allhId">
+								<tr>
+									<th>Year</th>
+									<th>Month</th>
+									<th>OHR ID</th>
+									<th>Name</th>
+									<th>{{config.timesheetLabels.client}}</th>
+									<th>{{config.timesheetLabels.genpact}}</th>
+									<th>Submission Date</th>
+								</tr>
+							</thead>
+							<tbody style="overflow-y: scroll;" id="allRId">
+								<tr ng-repeat="data in empData | orderBy : ['year','-month','name'] ">
+									<td>{{data.year}}</td>
+									<td>{{data.monthName}}</td>
+									<td>{{data.ohrId}}</td>
+									<td>{{data.name}}</td>
+									<td>{{data.clientDays}}</td>
+									<td>{{data.genpactDays}}</td>
+									<td>{{data.lstUpdDt}}</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+					<div>
+						<ul class="pager">
+							<li><a ng-click="loadPage(1)">First</a><li>
+							<li><a ng-click="loadPage('next')">Next</a><li>
+							<li><a ng-click="loadPage('prev')">Previous</a><li>
+							<li><a ng-click="loadPage('last')">Last</a><li>
+							<li>Pages: {{totalTS}}</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+			
+		</div>
+	</div>
+</div>
