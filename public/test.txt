@@ -1,1 +1,192 @@
 
+@import url('bootstrap.css');
+ 
+html, .container-table {
+    height: 100vh;
+	width: 100%;
+
+}
+body {
+	height: 100vh;
+	width: 100%;
+	padding: 0%;
+}
+
+.sidenav {
+      padding-top: 20px;
+      background-color: #f1f1f1;
+      height: 100%;
+    }
+
+.container-table {
+    display: table;
+}
+.vertical-center-row {
+    display: table-cell;
+    vertical-align: middle;
+}
+.form-group.required .control-label:after {
+  content:"*";
+  color:red;
+}
+.edit-ico {
+	font-size: 30px;
+	cursor: pointer;
+}
+.p{
+	cursor: pointer;
+	font-size: 18px;
+}
+
+.default-page{
+	width: 100%;
+	padding: 1% 1% 1% 1%;
+}
+.genpact-logo{
+	width: 20%;
+	margin-top: 5px;
+	background-image: url("../img/genpact1.png");
+	background-repeat: no-repeat;
+	background-size: contain;
+	margin-left: 0%;
+}
+.fixed-w{
+	min-height: 62vh;
+	max-height: 62vh;
+	height: 52vh;
+	width: 100%;
+}
+.wizard .btn {
+    background-color: #f89c2c;
+    color: #fff;
+}
+.wizard .btn:hover{
+    background-color: #f5c283;
+    color: #fff;
+}
+a {
+	cursor: pointer;
+}
+
+.hover-trigger:hover {
+	background-color: #1fae66;
+}
+.content-list .menu-badge {
+    top: 2px;
+}
+.reg-span-val{
+	background: none;
+	white-space:pre;
+	display: inline-block;
+	text-overflow: ellipsis;
+	overflow: hidden;
+}
+.reg-span-lbl{
+	float: left;
+	width:42%;
+	
+}
+.reg-span-lbl20{
+	float: left;
+	width:20%;
+}
+.sp-sml{
+	color: red;
+	font-size: 10px;
+}
+.w20{
+	width: 80%;
+}
+.w58{
+	width: 58%;
+}
+a.btn[disabled] {
+   pointer-events: none;
+   cursor: default;
+   background-color: #045f04 !important;
+}
+.ta-right label.col-xs-4{
+	text-align: right;
+}
+.edit-big{
+	padding-top: 21px;
+}
+.edit-big a{
+	padding: 5px 5px;
+}
+.hover-c{
+	background-color: rgb(120, 213, 254) !important;
+}
+.hover-c:hover{
+	background-color: rgb(95, 95, 95) !important;
+}
+.hover-c:hover a span {
+	color: white !important;
+}
+.width-xs-2 {
+    width: 154px;
+}
+.vd_grey .fa-caret-right{
+	color: grey !important;
+}
+.td-center{
+	text-align: center;
+}
+.clearfix{
+	height: 89vh;
+}
+
+table tr td{
+	padding:10px 10px 5px 10px;
+}
+
+/* boot strap nav link custom modofication*/
+.tnav > li{
+	text-decoration: blink; 
+	padding: 5px 2px 5px 0px;
+}
+
+.tnav {
+	border:solid;
+	border-color: white;
+	border-radius: 5px;
+	background-color: white;
+	text-decoration: blink;
+}
+
+.linkClass{
+	color: hsl(360,60%,50%);
+}
+
+
+#logoImg{
+	width: 150px;
+	height: 30px;
+	padding: 3px 0px  0px 0px;
+	text-decoration: line-through;
+}
+
+.footer {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    background-color: #009BDF;
+    color: white;
+    text-align: center;
+}
+
+/* table css design*/
+
+#allRId tr{
+
+	background-color: hsl(360,60%,50%);
+	color: white;
+}
+
+#allhId th{
+	background-color: hsl(216, 11%, 27%);
+	color: white;
+}
+
+
