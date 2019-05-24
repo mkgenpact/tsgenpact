@@ -1,0 +1,49 @@
+<div class="default-page">
+	<div class="vd_content-section clearfix">
+		<div class="row">
+			<div class="col-md-12" style="overflow-y: auto;height: 80vh;">
+				<div class="panel widget">
+					<div class="panel-heading vd_bg-grey">
+						<h3 class="panel-title"> <span class="menu-icon"> <i class="fa fa-users" aria-hidden="true"></i> </span> All Employees </h3>
+					</div>
+					<div class="panel-body table-responsive">
+						<table class="table table-bordered">
+							<thead>
+								<tr>
+									<th>OHR-ID</th>
+									<th>Name</th>
+									<th>Email</th>
+									<th>On Boarding Date</th>
+									<th>Off Boarding Date</th>
+									<th>Team</th>
+									<th>Location</th>
+									<th class="td-center">Status</th>
+									<th class="td-center">Action</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr ng-repeat="emp in empData | orderBy:['-active','name']" ng-class="{'alert-danger': (emp.active != '1')}">
+									<td>{{emp.ohrId}}</td>
+									<td>{{emp.name}}</td>
+									<td>{{emp.email}}</td>
+									<td>{{emp.startDt}}</td>
+									<td>{{emp.endDt}}</td>
+									<td>{{emp.team}}</td>
+									<td>{{emp.location}}</td>
+									<td class="td-center">
+										<span ng-if="emp.active==1" class="label label-success">Active</span>
+										<span ng-if="emp.active != 1" class="label label-default">Inactive</span>
+									</td>
+									<td class="td-center menu-action">
+										<a title="Edit Employee" ng-click="editEmployee(emp)" class="btn menu-icon vd_bg-green"> <i class="fa fa-pencil" aria-hidden="true"></i></i> </a> 
+										<!--a title="Mark Employee Inactive" ng-click="removeEmployee(emp)" ng-disabled="emp.active != 1" class="btn menu-icon vd_bg-yellow"> <i class="fa fa-times" aria-hidden="true"></i> </a--> 
+									</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
