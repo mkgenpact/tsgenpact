@@ -68,7 +68,7 @@ scheduler:
     month: '*'
     day_of_week: '*'
     to: 'genpact-hsteam@nomura.com;genpact-hs-inteam@nomura.com'
-    cc: 'AmbujKumar.Swain@genpact.com;Dharmendra.Tiwari@nomura.com'
+    cc: 'AmbujKumar.Swain@genpact.com'
     bcc: 'mithun.kumar@nomura.com;'
     subject: 'Timesheet Reminder Email'
     template: 'register'
@@ -84,7 +84,7 @@ timesheetTemplate:
     pmoShortName : 'Amit'
     pmo : Amit Rampal
     pmoEmail : 'genpactcmrow-india-europe-pmo@genpact.com;amit.rampal@genpact.com;preeti.yadav2@genpact.com'
-    cc : 'karan.Goyal@genpact.com;AmbujKumar.Swain@genpact.com;Dharmendra.Tiwari@nomura.com'
+    cc : 'karan.Goyal@genpact.com;AmbujKumar.Swain@genpact.com'
     bcc : 'mithun.kumar2@genpact.com;mithun.kumar@nomura.com;'
     expenditureType:
                     - Billable
