@@ -1,0 +1,39 @@
+<div class="default-page">
+	<div class="vd_content-section clearfix">
+		<div class="row">
+			<div class="col-md-12" style="overflow-y: auto;height: 80vh;">
+				<div class="panel panel-primary">
+					<div class="panel-heading">
+						<h3 class="panel-title"> <span class="menu-icon"> <i class="fa fa-book" aria-hidden="true"></i></span> My Timesheet Data </h3>
+					</div>
+					<div class="panel-body">
+						<div class="table-responsive" >
+							<table class="table table-bordered">
+								<thead>
+									<tr>
+										<th>Year</th>
+										<th>Month</th>
+										<th>{{config.timesheetLabels.client}}</th>
+										<th>{{config.timesheetLabels.genpact}}</th>
+										<th>No Of Leave</th>
+										<th>Submission Date</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr ng-repeat="data in empData.data | orderBy:['-year','-month']">
+										<td>{{data.year}}</td>
+										<td>{{data.monthName}}</td>
+										<td>{{data.clientDays}}</td>
+										<td>{{data.genpactDays}}</td>
+										<td>{{data.noOfLeave}}</td>
+										<td>{{data.lstUpdDt}}</td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+					</div>
+                </div>
+			</div>			
+		</div>
+	</div>
+</div>
