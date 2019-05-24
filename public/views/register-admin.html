@@ -1,0 +1,73 @@
+<div class="default-page">
+	<div class="vd_content-section clearfix">
+		<div class="row">
+			<div class="col-md-12" style="overflow-y: auto;height: 80vh;">
+				<div class="panel widget">
+					<div class="panel-heading vd_bg-grey">
+						<h3 class="panel-title"> <span class="menu-icon"> <i class="fa fa-users" aria-hidden="true"></i> </span> Register a New Admin </h3>
+					</div>
+					<div class="panel panel-default">
+						<div class="panel-body">
+						   <form name="adminForm" ng-submit="registerAdminUser(registerModel)">
+							<div class="row">
+								<div class="col-sm-3">
+									<div class="form-label">Name</div>
+									<input ng-model="registerModel.name"  name="userName" class="mgbt-xs-20 mgbt-sm-0" type="text" required>
+								</div>
+								<div class="col-sm-3">
+									<div class="form-label">OHRID</div>
+									<input class="" ng-model="registerModel.ohrId" type="number" required>
+								</div>
+							</div>
+							<div class="row">
+								<div class="col-sm-3">
+									<div class="form-label">Password</div>
+									<input ng-keyup="validatePwd(registerModel.pass)" ng-model="registerModel.pass" class="mgbt-xs-20 mgbt-sm-0" type="password" required>
+								</div>
+								<div class="col-sm-3">
+									<div class="form-label">Confirm Password</div>
+									<input ng-blur="confirmPwd(registerModel)" ng-model="registerModel.confirmPass" class="" type="password" required>
+								</div>
+							</div>
+							<div class="row">
+								<div class="col-sm-3">
+									<div class="form-label">Team</div>
+									<input ng-model="registerModel.team" class="mgbt-xs-20  mgbt-sm-0" type="text" >
+								</div>
+								<div class="col-sm-3">
+									<div class="form-label">Email</div>
+									<div class="controls">
+										<div class="input-group"> 
+											<input ng-model="registerModel.email" type="email" required/>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="row">
+								<div class="col-sm-3">
+									<div class="form-label">Location</div>
+									<div class="mgbt-xs-20 mgbt-sm-0">
+										<select ng-model="registerModel.location">
+											<option value="UK">UK</option>
+											<option value="INDIA">INDIA</option>
+										</select>
+									</div>
+								</div>
+							</div>
+							<div class="row">
+								<div class="col-sm-3"> 
+									<input type="submit" value="Create" class="btn vd_btn vd_bg-green finish">
+									<!-- <a ng-click="registerUser(registerModel)" class="btn vd_btn vd_bg-green finish">
+										<span class="menu-icon"><i class="fa fa-fw fa-check"></i></span> Create</a>  -->
+									<a ng-click="navigateTo('dashboard')" class="btn vd_btn vd_bg-blue finish">
+										<span class="menu-icon"><i class="fa fa-fw fa-times-circle"></i></span> Cancel</a> 
+								</div>
+							</div>
+							</form>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
