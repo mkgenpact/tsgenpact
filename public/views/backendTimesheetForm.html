@@ -1,0 +1,86 @@
+<div class="default-page">
+	<div class="row">
+	  <div class="panel panel-default">
+	  	<div class="panel-body" >
+	  		<form ng-submit="addToBackendTS(backendts)">
+		  		<table>
+		  			<tr>
+		  				<td>OHR ID:</td>
+		  				<td><input type="text" ng-model="user.ohrId" placeholder="OHR ID" ng-disabled="true"></td>
+		  				<td>Project Code:</td>
+		  				<td><input type="number" ng-model="backendts.projectCode" placeholder="Project Code" required>
+		  				</td>
+		  				<td>Date</td>
+		  				<td>
+		  					<datepicker date-format="yyyy-MM-dd">
+									<input ng-model="backendts.date"  type="text" required/>
+							</datepicker>	
+						</td>
+		  			</tr>
+		  			<tr>
+		  				<td>Expenditure Type :</td>
+		  				<td> 
+		  					<select ng-model="backendts.expenditureType" ng-options="x for x in config.timesheetTemplate.expenditureType" required>
+	  							<option value="">Select Expenditure Type </option>
+							</select>
+		  				</td>
+		  				<td>Task Details :</td>
+		  				<td> 
+		  					<select ng-model="backendts.taskDetail" ng-options="x for x in config.timesheetTemplate.taskDetails" required>
+	  							<option value="">Select Task Detail </option>
+							</select>
+		  				</td>
+		  				<td>Hours</td>
+		  				<td><input type="number" min="0" step="any" ng-model="backendts.hour" placeholder="hour" required></td>
+		  			</tr>
+		  			<tr>
+		  				<td><input type="submit" value ="Add To Grid"></td>
+		  			</tr>
+		  		</table>
+		  	</form>
+		</div>
+  	</div>
+  </div>
+  	<br>
+  	<div class ="row">
+  		<div class="col-md-12" style="overflow-y: auto;height: 80vh;">
+				<div class="panel panel-primary">
+					<div class="panel-heading">
+						<h3 class="panel-title"> <span class="menu-icon"> <i class="fa fa-book" aria-hidden="true"></i></span>Added Timesheet</h3>
+					</div>
+					<div class="panel-body">
+						<div class="table-responsive" >
+							<table class="table table-bordered">
+								<thead>
+									<tr>
+										<th>OHRID</th>
+										<th>ProjectCode</th>
+										<th>Expenditure Type</th>
+										<th>Task Detail</th>
+										<th>Date</th>
+										<th>Hours</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr ng-repeat="ts in backendTsData.tsData">
+										<td>{{ts.ohrId}}</td>
+										<td>{{ts.projectCode}}</td>
+										<td>{{ts.expenditureType}}</td>
+										<td>{{ts.taskDetail}}</td>
+										<td>{{ts.date}}</td>
+										<td>{{ts.hour}}</td>
+									</tr>
+									<tr>
+										<td colspan="3">
+											<button ng-click="sendToPMO(backendTsData)" type="button" class="btn btn-primary" ng-disabled="dataExists">Send To PMO</button>&nbsp;&nbsp;
+											<button ng-click="exportExcel(backendTsData)" type="button" class="btn btn-primary" ng-disabled="dataExists">Export To Excel</button>
+										</td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+					</div>
+                </div>
+			</div>		
+  	</div>
+</div>
