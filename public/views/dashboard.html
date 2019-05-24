@@ -1,0 +1,136 @@
+<div class="default-page">
+	<div class="vd_content-section clearfix">
+		<div class="row">
+			<div class="col-md-4">
+				<div class="panel widget vd_pie-chart-widget">
+					<div class="panel-heading vd_bg-red">
+						<h3 class="panel-title"> <span class="menu-icon"> <i class="glyphicon glyphicon-share-alt"></i> </span> Send Report to Manager </h3>
+					</div>
+					<div class="panel-body">
+						<!--p class="badge alert-danger">Total TimeSheet Pending <span class="badge">15</span></p-->
+						<div class="row">
+							<form class="form-inline">
+								<div class="form-group">
+									<div class="form-label">Location<span class="vd_red">*</span></div>
+									<div class="mgbt-xs-20 mgbt-sm-0">
+										<select  multiple ng-model="dbModel.locations" ng-options="x for x in config.register.location">
+										</select>
+									</div>
+								</div>
+								<div class="form-group">
+									<select ng-model="dbModel.rYear" ng-options="x for x in config.calendar.year" class="form-control">
+									</select>
+								</div>
+								<div class="form-group">
+									<select ng-model="dbModel.rMonth"  ng-options="item as item.name for item in config.calendar.month" class="form-control">
+									</select>
+								</div>
+								<div class="form-group">
+									<button ng-click="sendMonthlyReport(dbModel)" class="btn vd_btn vd_bg-green vd_white" type="submit"><i class="icon-ok" class="form-control"></i>Send</button>
+								</div>
+							</form>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="col-md-4">
+				<div class="panel widget vd_pie-chart-widget">
+					<div class="panel-heading vd_bg-red">
+						<h3 class="panel-title"> <span class="menu-icon"> <i class="glyphicon glyphicon-share-alt"></i> </span> Send Monthly Notifications to All Employees </h3>
+					</div>
+					<div class="panel-body">
+						<!--p class="badge alert-danger">Total TimeSheet Pending <span class="badge">15</span></p-->
+						<form class="form-inline">
+								<div class="form-group">
+									<select ng-model="dbModel.eMonth"  ng-options="item as item.name for item in config.calendar.month" class="form-control">
+									</select>
+								</div>
+								<div class="form-group">
+									<button ng-click="sendMonthlyEmail(dbModel)" class="btn vd_btn vd_bg-green vd_white" type="submit"><i class="icon-ok" class="form-control"></i>Send</button>
+								</div>
+						</form>
+					</div>
+				</div>
+			</div>
+
+			<div class="col-md-4">
+				<div class="panel widget vd_pie-chart-widget">
+					<div class="panel-heading vd_bg-red">
+						<h3 class="panel-title"> <span class="menu-icon"> <i class="glyphicon glyphicon-share-alt"></i> </span>Upload Timesheet</h3>
+					</div>
+					<div class="panel-body">
+						<!--p class="badge alert-danger">Total TimeSheet Pending <span class="badge">15</span></p-->
+						
+						<form name="upload_form" class="form-inline">
+								<div class="form-group">
+									<input 
+							                type="file" 
+							                ngf-select 
+							                ng-model="file" 
+							                name="file" 
+							                ngf-pattern="'*'"
+							                accept="*" 
+							                ngf-max-size="20MB" 
+							                />
+
+							             <i ng-show="upload_form.file.$error.required">*required</i><br>
+							             <i ng-show="upload_form.file.$error.maxSize">File too large 
+							             {{file.size / 1000000|number:1}}MB: max 20M</i>
+								</div>
+								<div class="form-group">
+									<button ng-click="uploadTimesheet()" class="btn vd_btn vd_bg-green vd_white" type="submit"><i class="icon-ok" class="form-control"></i>submit</button>
+								</div>
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-md-6">
+				<div class="panel widget vd_pie-chart-widget">
+					<div class="panel-heading vd_bg-red">
+						<h3 class="panel-title"> <span class="menu-icon"> <i class="icon-pie"></i> </span> Pie Chart </h3>
+					</div>
+					<div class="panel-body-list pd-15">
+						<div id="pie-chart" class="pie-chart" style="height: 318px; width: 280px; padding: 0px; position: relative;float: left">
+							<canvas style="height:100px;" id="pie" class="chart chart-pie" height="280" width="280" chart-data="tech_data" chart-labels="tech_labels" chart-options="tech_options">
+							</canvas>
+						</div>
+						<div style="float: right">
+							<div class="form-group">
+								<div class="col-sm-12 controls">
+									<select ng-change="getData(dbModel)" ng-model="dbModel.compareVal" class="form-control" >
+										<option value="P_LANG">Technology</option>
+										<option value="Role">Role</option>
+										<option value="Location">Location</option>
+										<option value="Tools">Tools</option>
+									</select>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="col-md-6">
+				<div class="panel widget vd_pie-chart-widget">
+					<div class="panel-heading vd_bg-red">
+						<h3 class="panel-title"> <span class="menu-icon"> <i class="icon-pie"></i> </span> Chart </h3>
+						<div class="vd_panel-menu">
+							<div class="menu entypo-icon" ng-click="toggle()" title="Toggle"><i class="icon-graph"></i> </div>
+							<!--div class=" menu entypo-icon"> <i class="icon-cross"></i> </div-->
+						</div>
+					</div>
+					<div class="panel-body-list pd-15">
+						<div id="pie-chart" class="pie-chart" style="height: 318px; padding: 0px; position: relative;">
+							<!-- Chart data goes here with HTML -->
+							<canvas id="chart2" chart-type="type" class="chart-base" ng-if="cType == 'line'"  chart-data="data" chart-labels="labels" chart-series="series" chart-options="options" chart-dataset-override="datasetOverride" chart-click="onClick">
+							</canvas>
+							<!--h4> Resources Vs Location </h4-->
+						</div>
+						
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
