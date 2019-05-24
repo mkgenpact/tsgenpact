@@ -1,0 +1,54 @@
+<div class="default-page">
+	<div class="vd_content-section clearfix">
+		<div class="row">
+			<div class="col-md-12" style="overflow-y: auto;height: 80vh;">
+				<div class="panel widget">
+					<div class="panel-heading vd_bg-grey">
+						<h3 class="panel-title"> <span class="menu-icon"> <i class="fa fa-book" aria-hidden="true"></i></span> Create Timesheet </h3>
+					</div>
+					<div class="panel-body">
+						<div class="row">
+							<div class="col-sm-2">
+								<div class="form-label">Select Year</div>
+								<div class="mgbt-xs-20 mgbt-sm-0">
+									<select ng-model="tsModel.year" ng-options="x for x in config.calendar.year">
+									</select>
+								</div>
+							</div>
+							<div class="col-sm-2">
+								<div class="form-label">Select Month</div>
+								<div class="mgbt-xs-20 mgbt-sm-0">
+									<select ng-change="getTotalDays(tsModel)" ng-model="tsModel.month" ng-options="item as item.name for item in config.calendar.month">
+									<option value="">Please Select Month</option>
+									</select>
+								</div>
+							</div>
+							<div class="edit-big" ng-if="showEdit"> 
+								<a ng-click="edit()" class="btn vd_btn btn-xs vd_bg-yellow"> <i class="fa fa-pencil append-icon"></i> Edit </a> 
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-sm-2">
+								<div class="form-label">{{config.timesheetLabels.genpact}}<span class="vd_red">*</span></div>
+								<input ng-model="tsModel.genpactDays" class="mgbt-xs-20 mgbt-sm-0" type="number" ng-disabled="dataExists">
+							</div>
+							<div class="col-sm-2">
+								<div class="form-label">{{config.timesheetLabels.client}}<span class="vd_red">*</span></div>
+								<input class="" ng-model="tsModel.clientDays" type="number" ng-disabled="dataExists">
+							</div>
+							<div class="col-sm-2" ng-if="wdays">
+								<div class="form-label">Total Working Days</div>
+								<input ng-model="wdays" class="mgbt-xs-20 mgbt-sm-0" type="number" disabled="true">
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-sm-7">
+								<button ng-click="createTS(tsModel)" class="btn vd_btn vd_bg-green vd_white"><i class="icon-ok"></i>Submit</button>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
