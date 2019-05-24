@@ -1,0 +1,150 @@
+<!doctype html>
+<html ng-app="TimesheetApp">
+<head>
+	<meta charset="UTF-8">
+	<title>{{appNameTitle}}</title>
+
+	<meta charset="utf-8">
+  	<meta name="viewport" content="width=device-width, initial-scale=1">
+	
+	<!-- bootstrap css Libraray -->
+	<link rel="stylesheet" type="text/css" href="styles/css/bootstrap.min.css"></link>
+	<link rel="stylesheet" type="text/css" href="styles/css/bootstrap.css"></link>
+	<link rel="stylesheet" type="text/css" href="styles/css/dataTables.bootstrap.min.css"></link>
+	
+
+	<!-- Jquery css Libraray -->
+	<link rel="stylesheet" type="text/css" href="styles/css/jquery-ui.css"></link>
+
+	<link href="lib/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <!--[if IE 7]><link type="text/css" rel="stylesheet" href="css/font-awesome-ie7.min.css"><![endif]-->
+    <link href="lib/font-entypo.css" rel="stylesheet" type="text/css">    
+    <!-- Fonts CSS -->
+    <link href="lib/fonts.css" rel="stylesheet" type="text/css">
+    <!-- Plugin CSS -->
+    <link href="lib/jquery-ui.custom.min.css" rel="stylesheet" type="text/css">    
+    <link href="lib/prettyPhoto.css" rel="stylesheet" type="text/css">
+    <link href="lib/isotope.css" rel="stylesheet" type="text/css">
+    <link href="lib/jquery.pnotify.css" media="screen" rel="stylesheet" type="text/css">    
+	<link href="lib/prettify.css" rel="stylesheet" type="text/css"> 
+    <link href="lib/jquery.mCustomScrollbar.css" rel="stylesheet" type="text/css">
+    <link href="lib/jquery.tagsinput.css" rel="stylesheet" type="text/css">
+    <link href="lib/bootstrap-switch.css" rel="stylesheet" type="text/css">    
+    <link href="lib/daterangepicker-bs3.css" rel="stylesheet" type="text/css">    
+    <link href="lib/bootstrap-timepicker.min.css" rel="stylesheet" type="text/css">
+    <link href="lib/colorpicker.css" rel="stylesheet" type="text/css">
+    <link href="lib/angular-datepicker.css" rel="stylesheet" type="text/css">
+    <link href="lib/angular-datepicker.css" rel="stylesheet" type="text/css"> 
+
+    
+ 
+	<!-- Specific CSS -->
+	<!-- Theme CSS -->
+    <link href="lib/theme.min.css" rel="stylesheet" type="text/css">
+    <!--[if IE]> <link href="css/ie.css" rel="stylesheet" > <![endif]-->
+    <link href="lib/chrome.css" rel="stylesheet" type="text/chrome"> <!-- chrome only css -->    
+    <!-- Responsive CSS -->
+	<link href="lib/theme-responsive.min.css" rel="stylesheet" type="text/css"> 
+
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	
+	
+	<!-- angular js Libraray -->
+	<script type="text/javascript" src="lib/angular.min.js"></script>
+	<script type="text/javascript" src="lib/angular-route.min.js"></script>
+	<script type="text/javascript" src="lib/angular-resource.min.js"></script>
+	<script type="text/javascript" src="lib/angular-ui-router.min.js"></script>
+	<script type="text/javascript" src="lib/angular-cookies.js"></script>
+	<script type="text/javascript" src="lib/angular-cookies.min.js"></script>
+	<script type="text/javascript" src="lib/angular-datepicker.js"></script>
+	<script type="text/javascript" src="lib/angular-dep.js"></script>
+	<script type="text/javascript" src="lib/ng-file-upload.min.js"></script>
+	<script type="text/javascript" src="lib/fileSaver.js"></script>
+	<script type="text/javascript" src="lib/fileSaver.min.js"></script>
+
+
+
+
+	<script type="text/javascript" src="lib/Chart.bundle.min.js"></script>
+	<!--script type="text/javascript" src="lib/Chart.min.js"></script-->
+	<script type="text/javascript" src="lib/Chart.js"></script>
+	<script type="text/javascript" src="lib/angular-chart.min.js"></script>
+
+	<!-- bootstrap js Libraray -->
+	<script type="text/javascript" src="lib/bootstrap.min.js"></script>
+	<script type="text/javascript" src="lib/dataTables.bootstrap.min.js"></script>
+
+	<!-- jquery js Libraray -->
+	<!-- <script type="text/javascript" src="lib/jquery-1.12.4.js"></script> -->
+	<script type="text/javascript" src="lib/jquery-ui.js"></script>	
+	<!-- <script type="text/javascript" src="lib/jquery-3.2.1.min"></script> -->
+	<script type="text/javascript" src="lib/jquery.dataTables.min.js"></script>	
+	
+	<!-- Timesheet custom angular js-->
+	<script src="js/app.js" type="text/javascript" ></script>
+	<script src="js/controllers.js" type="text/javascript" ></script>
+	<script src="js/controllers/empTimeSheetView.js" type="text/javascript" ></script>
+	<script src="js/controllers/empDetailsView.js" type="text/javascript" ></script>
+	<script src="js/controllers/login.js" type="text/javascript" ></script>
+	<script src="js/controllers/empRegistration.js" type="text/javascript" ></script>
+	<script src="js/controllers/adminManagement.js" type="text/javascript" ></script>
+	<script src="js/controllers/backendTimesheetManagement.js" type="text/javascript" ></script>
+	<script src="js/service.js" type="text/javascript" ></script>
+	
+	<!-- Timesheet custom css Libraray -->
+	<link rel="stylesheet" type="text/css" href="styles/css/custom.css"></link>
+
+	<!-- <base href="/"></base> -->
+</head>
+<body ng-controller="AppController">
+
+	<div class="container-fluid">
+
+		<div class="row">
+			<div class="col-sm-12" style="background-color: #009BDF; height: 5vh;">
+				<img id="logoImg" src="styles/img/genpact1.png" alt="Paris">
+				<a ng-click="logout()" style="float: right; padding: 10px 30px 0px 0px; color:white " ng-if="loggedIn"><span class="glyphicon glyphicon-log-in"></span> Logout</a>
+			</div> 
+		</div>
+		<div class="row" ng-if="loggedIn">
+			<div class="col-sm-12" style="background-color: #434343; height: 3vh;">
+				<span style ="color:white">Welcome {{user.name}}</span>
+			</div>
+		</div>
+		<div id="alertmessage"></div>
+		<div class="row">
+			<div class="col-sm-2 sidenav" ng-if="loggedIn" style="height: 89vh">
+				<ul class="tnav" style="list-style-position: outside;list-style-type: square;">
+					  <li class="active" ng-if="isAdmin" ng-click="navigateTo('dashboard')"><a href="#">Dashboard</a></li>
+				      <li ng-if="isAdmin">
+				      		<div class="dropdown">
+				      			<a data-toggle="dropdown">Register
+				      			<span class="caret"></span></a>
+					      		<ul class="dropdown-menu">
+						            <li><a ng-click="navigateTo('newEmployee')">Employee</a></li>
+						            <li><a ng-click="navigateTo('newAdmin')">Admin</a></li>
+					          	</ul>
+				          	</div>
+				      	</li>
+				      <li ng-if="isAdmin"><a ng-click="navigateTo('seeAllEmployee')">All Employees</a></li>
+				      <li ng-if="isAdmin"><a ng-click="navigateTo('timesheetReport')">Timesheet Report</a></li>
+				      <li ng-if="isAdmin"><a ng-click="navigateTo('viewAllEmpTs')">View Timesheets</a></li>
+				      <li ng-if="!isAdmin"><a ng-click="navigateTo('createTimesheet')">Create Timesheet</a></li>
+				      <li ng-if="!isAdmin"><a ng-click="navigateTo('empData')">My Timesheet Data</a></li>
+				      <li ng-if="!isAdmin"><a ng-click="navigateTo('profile')">Profile</a></li>
+				      <li ng-if="!isAdmin" style="word-wrap:break-word;"><a ng-click="navigateTo('updateTimesheetBackend')">Send Timesheet Correction for Backend Update</a></li>
+			      </ul>
+	    	</div>
+			<div class="col-sm-10" ui-view ng-if="loggedIn" style="height: 89vh"></div>
+			<div class="col-sm-12" ui-view ng-if="!loggedIn" style="height: 89vh"></div>
+		</div>
+
+		<div class="row">
+			<div class="col-sm-12" style="background-color: #009BDF; height: 3vh; text-align: center; position: fixed;">
+				<span style ="padding: 0px 0px 20px 0px; color:white;">TimeSheet Management Application - 2017</span>
+			</div>
+		</div>
+
+	</div>
+</body>
+</html>
