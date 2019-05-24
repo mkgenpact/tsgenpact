@@ -1,0 +1,284 @@
+<div class="default-page">
+	<div class="vd_content-section clearfix">
+		<div class="row">
+			<div class="col-md-12">
+                <div class="panel widget">
+					<div class="panel-heading vd_bg-grey">
+						<h3 class="panel-title"> <span class="menu-icon"> <i class="fa fa-user"></i> </span> Register </h3>
+					</div>
+					<div class="panel-body">
+						<form class="form-horizontal fixed-w" role="form">
+							<div id="wizard-1" class="form-wizard">
+								<ul class="nav nav-pills nav-justified">
+									<li class="" ng-class="{'active': (activePane[0] == 1)}">
+										<a><div class="menu-icon"> 1 </div>User Profile </a>
+									</li>
+									<li class="" ng-class="{'active': (activePane[0] == 2)}">
+										<a><div class="menu-icon"> 2 </div>Technical Skills </a>
+									</li>
+									<!--li class="" ng-class="{'active': (activePane[0] == 3)}">
+										<a><div class="menu-icon"> 3 </div>Contact Detail </a>
+									</li-->
+									<li class="" ng-class="{'active': (activePane[0] == 3)}">
+										<a><div class="menu-icon"> 3 </div>Review </a>
+									</li>
+								</ul>
+								<div class="tab-content">
+									<div class="tab-pane" ng-class="{'active': (activePane[0] == 1)}" id="tab1">
+										<div class="row">
+											<div class="col-sm-4">
+												<div class="form-label">Name<span class="vd_red">*</span></div>
+												<input ng-model="registerModel.name" class="mgbt-xs-20 mgbt-sm-0" type="text">
+											</div>
+											<div class="col-sm-4">
+												<div class="form-label">OHRID<span class="vd_red">*</span></div>
+												<input class="" ng-model="registerModel.ohrId" type="number">
+											</div>
+										</div>
+										<div class="row">
+											<div class="col-sm-4">
+												<div class="form-label">Password<span class="vd_red">*</span></div>
+												<input ng-keyup="validatePwd(registerModel.pass)" ng-model="registerModel.pass" class="mgbt-xs-20 mgbt-sm-0" type="password">
+												<span class="sp-sml">{{warning}}</span>
+											</div>
+											<div class="col-sm-4">
+												<div class="form-label">Confirm Password<span class="vd_red">*</span></div>
+												<input ng-blur="confirmPwd(registerModel)" ng-model="registerModel.confirmPass" class="" type="password">
+												<span class="sp-sml">{{warningcnfm}}</span>
+											</div>
+										</div>
+										<div class="row">
+											<div class="col-sm-4">
+												<div class="form-label">Team<span class="vd_red">*</span></div>
+												<input ng-model="registerModel.team" class="mgbt-xs-20  mgbt-sm-0" type="text">
+											</div>
+											<div class="col-sm-4">
+												<div class="form-label">Email<span class="vd_red">*</span></div>
+												<div class="controls">
+													<div class="input-group"> 
+														<input ng-model="registerModel.email" class="col-sm-4" type="text">
+														<span class="input-group-addon  vd_bg-blue vd_white vd_bdt-blue">@{{config.emailgroup}}</span>
+													</div>
+												</div>
+											</div>
+										</div>
+										<div class="row">
+											<div class="col-sm-4">
+												<div class="form-label">Location<span class="vd_red">*</span></div>
+												<div class="mgbt-xs-20 mgbt-sm-0">
+													<select ng-model="registerModel.location" ng-options="x for x in config.register.location">
+													</select>
+												</div>
+											</div>
+											<div class="col-sm-4">
+												<div class="form-label">Contact(Mobile)<span class="vd_red">*</span></div>
+												<div class="mgbt-xs-20 mgbt-sm-0">
+													<input class="" ng-model="registerModel.contactMobile" type="text">
+												</div>
+											</div>
+										</div>
+										<div class="row">
+											<div class="col-sm-4">
+												<div class="form-label">On Boarding Date<span class="vd_red">*</span></div>
+												<div class="mgbt-xs-20 mgbt-sm-0">
+													<datepicker date-format="'dd-MM-yyyy">
+  														<input ng-model="registerModel.startDt"  type="text"/>
+													</datepicker>
+												</div>
+											</div>
+	
+										</div>
+									</div>
+									<div class="tab-pane" ng-class="{'active': (activePane[0] == 2)}" id="tab2">
+										<div class="row">
+											<div class="col-sm-4">
+												<div class="form-label">Role<span class="vd_red">*</span></div>
+												<div class="mgbt-xs-20 mgbt-sm-0">
+													<select ng-model="registerModel.role" ng-options="x for x in config.techSkills.title">
+													</select>
+												</div>
+											</div>
+											<div class="col-sm-4">
+												<div class="form-label" >Other Roles</div>
+												<input ng-model="registerModel.otherRoles" class="" type="text" 
+												data-toggle="tooltip" data-placement="right" title="Please Enter semicolon(;) in bewtween two Roles">
+											</div>
+										</div>
+										<div class="row">
+											<div class="col-sm-4">
+												<div class="form-label">Primary Language<span class="vd_red">*</span></div>
+												<div class="mgbt-xs-20 mgbt-sm-0">
+													<select  ng-model="registerModel.priLang" ng-options="l as l.id for l in config.techSkills.languages">
+													</select>
+												</div>
+											</div>
+											<div class="col-sm-4">
+												<div class="form-label" >Other Language</div>
+												<input ng-model="registerModel.otherLang" class="" type="text" 
+												data-toggle="tooltip" data-placement="right" title="Please Enter semicolon(;) in bewtween two Language">
+											</div>
+										</div>
+										<div class="row">
+											<div class="col-sm-4">
+												<div class="form-label">Tools</div>
+												<div class="mgbt-xs-20 mgbt-sm-0">
+													<select ng-model="registerModel.tools" ng-options="x for x in config.techSkills.tools">
+													</select>
+												</div>
+											</div>
+											<div class="col-sm-4">
+												<div class="form-label" >Other Tools</div>
+												<input ng-model="registerModel.otherTools" class="" type="text" 
+												data-toggle="tooltip" data-placement="right" title="Please Enter semicolon(;) in bewtween two Tools">
+											</div>
+										</div>
+										<div class="row">
+											<div class="col-sm-4">
+												<div class="form-label">Domain<span class="vd_red">*</span></div>
+												<div class="mgbt-xs-20 mgbt-sm-0">
+													<select ng-model="registerModel.domain" ng-options="x for x in config.techSkills.domain">
+													</select>
+												</div>
+											</div>
+											<div class="col-sm-4">
+												<div class="form-label" >Other Domains</div>
+												<input ng-model="registerModel.otherDomains" class="" type="text"
+												data-toggle="tooltip" data-placement="right" title="Please Enter semicolon(;) in bewtween two Domains">
+											</div>
+										</div>
+										<div class="row">
+											<div class="col-sm-4">
+												<div class="form-label">Operating Systems<span class="vd_red">*</span></div>
+												<div class="mgbt-xs-20 mgbt-sm-0">
+													<select ng-model="registerModel.os" ng-options="x for x in config.techSkills.os">
+													</select>
+												</div>
+											</div>
+										</div>
+									</div>
+									<!--div class="tab-pane" ng-class="{'active': (activePane[0] == 3)}" id="tab3">
+										<div class="form-group">
+											<label class="col-sm-2 control-label">Office</label>
+											<div class="col-sm-10 controls">
+												<select class="width-10" ng-model="registerModel.contactOff" >
+													<option>+44</option>
+													<option>+91</option>
+												</select>
+												<input class="width-30" type="text">
+											</div>
+										</div>
+										<div class="form-group">
+											<label class="col-sm-2 control-label">Personal Mobile</label>
+											<div class="col-sm-10 controls">
+												<select class="width-10" ng-model="registerModel.contactMobile" >
+													<option>+44</option>
+													<option>+91</option>
+												</select>
+												<input class="width-30" type="text">
+											</div>
+										</div>
+									</div-->
+									
+									
+									<div class="tab-pane" ng-class="{'active': (activePane[0] == 3)}" id="tab4">
+										
+										<div class="row">
+											<div class="col-sm-4">
+												<span class="input-group-addon reg-span-lbl20">Name </span>
+												<span class="input-group-addon reg-span-val w20">{{registerModel.name}}</span>
+											</div>
+											<div class="col-sm-4">
+												<span class="input-group-addon reg-span-lbl20">OHRID </span>
+												<span class="input-group-addon reg-span-val w20">{{registerModel.ohrId}}</span>
+											</div>
+											<div class="col-sm-4">
+												<span class="input-group-addon reg-span-lbl20" >Email </span>
+												<span class="input-group-addon reg-span-val w20" >{{registerModel.email}}</span>
+											</div>
+										</div>
+										<div class="row">
+											<div class="col-sm-4">
+												<span class="input-group-addon reg-span-lbl20" >Team </span>
+												<span class="input-group-addon reg-span-val w20" >{{registerModel.team}}</span>
+											</div>
+											<div class="col-sm-4">
+												<span class="input-group-addon reg-span-lbl20" >Location </span>
+												<span class="input-group-addon reg-span-val w20" >{{registerModel.location}}</span>
+											</div>
+											<div class="col-sm-4">
+												<span class="input-group-addon reg-span-lbl" >Contact(Mobile) </span>
+												<span class="input-group-addon reg-span-val w58" >{{registerModel.contactMobile}}</span>
+											</div>
+										</div>
+										<div class="row">
+											<div class="col-sm-4">
+												<span class="input-group-addon reg-span-lbl20" >Role </span>
+												<span class="input-group-addon reg-span-val w20">{{registerModel.role}}</span>
+											</div>
+											<div class="col-sm-4">
+												<span class="input-group-addon reg-span-lbl" >Other Roles </span>
+												<span class="input-group-addon reg-span-val w58">{{registerModel.otherRoles}}</span>
+											</div>
+											<div class="col-sm-4">
+												<span class="input-group-addon reg-span-lbl">Primary Language </span>
+												<span title="{{registerModel.priLang.details}}" class="input-group-addon reg-span-val w58">{{registerModel.priLang.id}}</span>
+											</div>
+										</div>
+										<div class="row">
+											<div class="col-sm-4">
+												<span class="input-group-addon reg-span-lbl">Other Language </span>
+												<span class="input-group-addon reg-span-val w58">{{registerModel.otherLang}}</span>
+											</div>
+											<div class="col-sm-4">
+												<span class="input-group-addon reg-span-lbl20">Domain </span>
+												<span class="input-group-addon reg-span-val w20">{{registerModel.domain}}</span>
+											</div>
+											<div class="col-sm-4">
+												<span class="input-group-addon reg-span-lbl">Other Domain </span>
+												<span class="input-group-addon reg-span-val w58">{{registerModel.otherDomains}}</span>
+											</div>
+											
+										</div>
+										<div class="row">
+											<div class="col-sm-4">
+												<span class="input-group-addon reg-span-lbl20" >Tools </span>
+												<span class="input-group-addon reg-span-val w20">{{registerModel.tools}}</span>
+											</div>
+											<div class="col-sm-4">
+												<span class="input-group-addon reg-span-lbl" >Other Tools </span>
+												<span class="input-group-addon reg-span-val w58">{{registerModel.otherTools}}</span>
+											</div>
+											<div class="col-sm-4">
+												<span class="input-group-addon reg-span-lbl20">OS </span>
+												<span class="input-group-addon reg-span-val w20">{{registerModel.os}}</span>
+											</div>
+										</div>
+										
+									</div>
+								</div>
+							</div>
+						</form>
+						<div class="form-actions-condensed wizard"> 
+							<a ng-disabled="disablePrev" class="btn vd_btn prev" ng-click="previous()">
+								<span class="menu-icon"><i class="fa fa-fw fa-chevron-circle-left"></i></span> 
+								Previous
+							</a> 
+							<a ng-disabled="disableNext" style="display: inline-block;" class="btn vd_btn next" ng-click="next()">
+								Next 
+								<span class="menu-icon"><i class="fa fa-fw fa-chevron-circle-right"></i></span>
+							</a> 
+							<a ng-if="disableNext" ng-click="registerUser(registerModel)" class="btn vd_btn vd_bg-green finish">
+								<span class="menu-icon"><i class="fa fa-fw fa-check"></i></span> Finish</a> 
+						</div>
+					</div>
+                </div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<script type="text/javascript">
+	$(document).ready(function(){
+    $('[data-toggle="tooltip"]').tooltip();   
+});
+</script>
