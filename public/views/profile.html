@@ -1,0 +1,78 @@
+<div class="row">
+		<div class="col-sm-9">
+			<div class="pd-20">
+				<h3 class="mgbt-xs-15 mgtp-10 font-semibold"><i class="icon-user mgr-10 profile-icon">
+					</i> Profile
+				</h3>
+			 </div>
+			<div class="panel panel-info">
+				<div class="panel panel-heading"><button class="btn btn-link" id="edidProfile" ng-click="editProfile()">About(Edit Profile)</button></div>
+				<div class="panel-body">	
+					<table class="table table-hover">
+								<tbody>
+									<tr>
+									<td><label class="control-label">Name :</label></td>
+									<td>{{user.name}}</td>
+									<td><label class="control-label">OHRID :</label></td>
+									<td>{{user.ohrId}}</td>
+									</tr>
+									<tr>
+									<td><label class="control-label">Email :</label></td>
+									<td>{{user.email}}</td>
+									<td><label class="control-label">Location :</label></td>
+									<td>{{user.location}}</td>
+									</tr>
+									<tr>
+									<td><label class="control-label">Team :</label></td>
+									<td>{{user.team}}</td>
+									<td><label class="control-label">Joining Date :</label></td>
+									<td>{{user.startDt}}</td>
+									</tr>
+									<tr>
+									<td><label class="control-label">Contact No :</label></td>
+									<td>{{user.contact}}</td>
+									</tr>
+								</tbody>
+							</table>
+				</div>
+			</div>
+			<div class="panel panel-info">
+						<div class="panel panel-heading">Technical Skill Set</div>
+						<div class="panel panel-body">
+							<table class="table table-hover">
+								<tbody>
+									<tr>
+									<td><label class="control-label">Role :</label></td>
+									<td>{{user.role}}</td>
+									<td><label class="control-label">Other Roles :</label></td>
+									<td>{{user.otherRoles}}</td>
+									</tr>
+									<tr>
+									<td><label class="control-label">Primary Language :</label></td>
+									<td>{{user.pLang}}</td>
+									<td><label class="control-label">Secondary Language :</label></td>
+									<td>{{user.sLang}}</td>
+									</tr>
+									<tr>
+									<td><label class="control-label">Tools :</label></td>
+									<td>{{user.tools}}</td>
+									<td><label class="control-label">Other Tools :</label></td>
+									<td>{{user.otherTools}}</td>
+									</tr>
+									<tr>
+									<td><label class="control-label">Domain :</label></td>
+									<td>{{user.domain}}</td>
+									<td><label class="control-label">Other Domains :</label></td>
+									<td>{{user.otherDomains}}</td>
+									</tr>
+									<tr>
+									<td><label class="control-label">Operating Systems :</label></td>
+									<td>{{user.os}}</td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+			</div>
+
+		 </div>
+ </div>
