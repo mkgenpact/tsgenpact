@@ -1,0 +1,81 @@
+<div class="default-page">
+	<div class="vd_content-section clearfix">
+		<div class="row">
+			<div class="col-md-12" style="overflow-y: auto;height: 80vh;">
+				<div class="panel widget">
+					<div class="panel-heading vd_bg-grey">
+						<h3 class="panel-title"> <span class="menu-icon"> <i class="fa fa-book" aria-hidden="true"></i></span> Timesheet Report </h3>
+					</div>
+					<div class="panel-body">
+						<form class="form-horizontal">
+							<div class="row">
+								<div class="col-md-2">
+									<label class="control-label">Select Year</label>
+									<div class="controls">
+										<select ng-model="repModel.year">
+											<option value="2016">2016</option>
+											<option value="2017">2017</option>								      
+											<option value="2018">2018</option>
+											<option value="2019">2019</option>
+										</select>
+									</div>
+								</div>
+								<div class="col-md-2">
+									<label class="control-label">Select Month</label>
+									<div class="controls">
+										<select ng-model="repModel.month">
+											<option value="1">January</option>
+											<option value="2">February</option>
+											<option value="3">March</option>
+											<option value="4">April</option>
+											<option value="5">May</option>
+											<option value="6">June</option>
+											<option value="7">July</option>
+											<option value="8">August</option>
+											<option value="9">Septmber</option>
+											<option value="10">Octomer</option>
+											<option value="11">November</option>
+											<option value="12">December</option>
+										</select>
+									</div>
+								</div>
+							</div>
+							<div class="row">
+								<div class="col-sm-7">
+									<button ng-click="getDetails(repModel)" class="btn vd_btn vd_bg-green vd_white"><i class="icon-ok"></i>Submit</button>
+								</div>
+							</div>
+						</form>
+						<div class="table-responsive" ng-if="allData.length > 0">
+							<table class="table table-bordered">
+								<thead>
+									<tr>
+										<th>OHR-ID</th>
+										<th>Name</th>
+										<th>{{config.timesheetLabels.client}}</th>
+										<th>{{config.timesheetLabels.genpact}}</th>
+										<th>Location</th>
+										<th style="text-align:center;">Action</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr ng-repeat="data in allData | orderBy:'name'" ng-class="{'alert-success': (data.nomuraDays != null && data.genpactDays!=null)}">
+										<td>{{data.ohrId}}</td>
+										<td>{{data.name}}</td>
+										<td>{{data.clientDays}}</td>
+										<td>{{data.genpactDays}}</td>
+										<td>{{data.location}}</td>
+										<td ng-click="remind(data)" class="menu-action" style="text-align:center;cursor: pointer;">
+											<!--p class="badge alert-danger">Remind <span class="glyphicon glyphicon-envelope"></span></p-->
+											<a title="Send Reminder" class="btn menu-icon vd_bg-green"><i class="fa fa-envelope"></i> </a>
+										</td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+					</div>
+                </div>
+			</div>			
+		</div>
+	</div>
+</div>
